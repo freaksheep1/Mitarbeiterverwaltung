@@ -1,16 +1,28 @@
 package fahrzeuge;
 
+import arbeiter.Mitarbeiter;
+
+import java.util.List;
+
 public abstract class Kfz {
 
-    int anzahlSitze;
-    int aktuellErhaltenePersonen;
-    int tankGroesse;
-    double tankinhalt;
-    int aktuelleGeschwindigkeit;
-    int maximaleGeschwindigkeit;
-    float anschaffungskosten;
-    GPS aktuelleGPSPosition;
-    boolean motorstand;
+    private int anzahlSitze;
+    private int aktuellErhaltenePersonen;
+    private int tankGroesse;
+    private double tankinhalt;
+    private int aktuelleGeschwindigkeit;
+    private int maximaleGeschwindigkeit;
+    private float anschaffungskosten;
+    private GPS aktuelleGPSPosition;
+    private Fahrer fahrer;
+    private boolean motorstand;
+    private List<Mitarbeiter> passagiere;
+    protected FuehrerscheinKlasse benoetigteKlasse;
+
+
+    public Kfz (int anzahlSitze) {
+
+    }
 
     public void bremsen() {
 
@@ -24,7 +36,7 @@ public abstract class Kfz {
 
     }
 
-    public void aussteigen() {
+    public void aussteigen(int sitzplatzNr) {
 
     }
 
@@ -36,11 +48,19 @@ public abstract class Kfz {
 
     }
 
-    public void einsteigen() {
+    public void einsteigenFahrer( Fahrer fahrer) {
+
+    }
+
+    public void einsteigenPassagier (Mitarbeiter mitarbeiter) {
 
     }
 
     public void parken() {
+
+    }
+
+    public void auslastung() {
 
     }
 }
