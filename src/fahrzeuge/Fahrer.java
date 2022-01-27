@@ -1,5 +1,7 @@
 package fahrzeuge;
 
+import fuehrerschein.Fuehrerschein;
+
 public class Fahrer {
 
     private Fuehrerschein fuehrerschein;

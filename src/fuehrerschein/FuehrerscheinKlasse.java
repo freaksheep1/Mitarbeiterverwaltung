@@ -1,4 +1,4 @@
-package fahrzeuge;
+package fuehrerschein;
 
 public enum FuehrerscheinKlasse {
     B,

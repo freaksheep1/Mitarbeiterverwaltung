@@ -1,4 +1,4 @@
-package fahrzeuge;
+package fuehrerschein;
 
 import java.util.List;
 

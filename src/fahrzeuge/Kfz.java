@@ -1,6 +1,7 @@
 package fahrzeuge;
 
 import arbeiter.Mitarbeiter;
+import fuehrerschein.FuehrerscheinKlasse;
 
 import java.util.List;
 
@@ -20,11 +21,22 @@ public abstract class Kfz {
     protected FuehrerscheinKlasse benoetigteKlasse;
 
 
-    public Kfz (int anzahlSitze) {
+    public Kfz(int anzahlSitze, int tankGroesse, double tankinhalt,  int maximaleGeschwindigkeit, float anschaffungskosten) {
+        this.anzahlSitze = anzahlSitze;
+        this.tankGroesse = tankGroesse;
+        this.tankinhalt = tankinhalt;
+        this.maximaleGeschwindigkeit = maximaleGeschwindigkeit;
+        this.anschaffungskosten = anschaffungskosten;
+
+
 
     }
 
-    public void bremsen() {
+    public void bremsen(int geschwindigkeit) {
+
+        if(geschwindigkeit - this.aktuelleGeschwindigkeit < 0) {
+
+        }
 
     }
 
