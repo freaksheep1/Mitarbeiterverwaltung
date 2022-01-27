@@ -3,6 +3,7 @@ package fuehrerschein;
 import java.util.List;
 
 public class Fuehrerschein {
+
     private List<FuehrerscheinKlasse> fueherscheinKlassen;
 
     public List<FuehrerscheinKlasse> getFueherscheinKlassen() {
@@ -10,6 +11,10 @@ public class Fuehrerschein {
     }
 
     public void setFueherscheinKlassen(List<FuehrerscheinKlasse> fueherscheinKlassen) {
+        this.fueherscheinKlassen = fueherscheinKlassen;
+    }
+
+    public Fuehrerschein(List<FuehrerscheinKlasse> fueherscheinKlassen) {
         this.fueherscheinKlassen = fueherscheinKlassen;
     }
 }

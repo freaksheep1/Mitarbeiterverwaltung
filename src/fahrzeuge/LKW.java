@@ -1,9 +1,17 @@
 package fahrzeuge;
 
-public class LKW {
+import fuehrerschein.FuehrerscheinKlasse;
+
+public class LKW extends Kfz{
 
     private float ladeflaeche;
     private float beladung;
+
+    public LKW(int anzahlSitze, int tankGroesse, double tankinhalt, int maximaleGeschwindigkeit, float anschaffungskosten, float ladeflaeche) {
+        super(anzahlSitze, tankGroesse, tankinhalt, maximaleGeschwindigkeit, anschaffungskosten);
+        this.ladeflaeche = ladeflaeche;
+        this.benoetigteKlasse = FuehrerscheinKlasse.D;
+    }
 
     public float getLadeflaeche() {
         return ladeflaeche;
@@ -21,30 +29,29 @@ public class LKW {
         this.beladung = beladung;
     }
 
-    public LKW (float ladeflaeche) {
-        this.beladung = 0;
-        this.ladeflaeche = ladeflaeche;
-    }
 
-    public void beladen (float menge) {
 
-       if(beladung + menge <= ladeflaeche) {
-           this.beladung += menge;
-       } else {
-           System.out.println("Full");
-       }
-    }
+    public void beladen(float menge) {
 
-    public void entladen (float menge) {
-
-        if(beladung - menge >= 0) {
-            this.beladung += menge;
+        if (beladung + menge <= ladeflaeche) {
+            setBeladung(beladung + menge);
         } else {
-            System.out.println("Empty");
+            setBeladung(ladeflaeche);
+            System.out.println("Voll");
         }
     }
 
-    public float auslastung () {
+    public void entladen(float menge) {
+
+        if (beladung - menge > 0) {
+            setBeladung(beladung - menge);
+        } else {
+            setBeladung(0);
+            System.out.println("Leer");
+        }
+    }
+    @Override
+    public float auslastung() {
         return this.beladung / this.ladeflaeche * 100;
     }
 
