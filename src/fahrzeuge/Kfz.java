@@ -171,6 +171,15 @@ public abstract class Kfz {
 
     public void aussteigen(int sitzplatzNr) {
 
+        if(sitzplatzNr < 0 || sitzplatzNr > this.anzahlSitze) {
+            throw new IllegalArgumentException("Sietzplatznummer existiert nicht!");
+        }
+        if(sitzplatzNr == 0) {
+            this.fahrer = null;
+        } else {
+            passagiere[sitzplatzNr-1] = null;
+        }
+
     }
 
     public void tanken () {
@@ -211,6 +220,5 @@ public abstract class Kfz {
     }
 
      public abstract float auslastung();
-
 
 }
