@@ -212,7 +212,7 @@ public abstract class Kfz {
                 return;
             }
         }
-        throw new IllegalArgumentException("Ist voll");
+        throw new IllegalArgumentException("Der Wagen ist voll!");
     }
 
     public void parken() {

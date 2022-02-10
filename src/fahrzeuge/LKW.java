@@ -35,9 +35,10 @@ public class LKW extends Kfz{
 
         if (beladung + menge <= ladeflaeche) {
             setBeladung(beladung + menge);
+            System.out.println("LWK wurde um " + menge + " beladen.");
         } else {
             setBeladung(ladeflaeche);
-            System.out.println("Voll");
+            System.out.println("Der LKW wurde voll beladen, der Rest bleibt neben dem LWK liegen.");
         }
     }
 
@@ -47,7 +48,7 @@ public class LKW extends Kfz{
             setBeladung(beladung - menge);
         } else {
             setBeladung(0);
-            System.out.println("Leer");
+            System.out.println("Der LWK wurde komplett entladen");
         }
     }
     @Override
