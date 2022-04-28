@@ -1,9 +1,9 @@
 package arbeiter;
 
 
-public abstract class Mitarbeiter {
+public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
 
-    protected int id;
+    protected Integer id;
     private String name;
 
     public int getId() {
@@ -27,5 +27,10 @@ public abstract class Mitarbeiter {
 
     public abstract double einkommen();
 
+    @Override
+    public int compareTo(Mitarbeiter o) {
+
+       return this.name.compareTo(o.getName()) ;
+    }
 }
 

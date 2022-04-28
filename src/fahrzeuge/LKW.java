@@ -2,7 +2,7 @@ package fahrzeuge;
 
 import fuehrerschein.FuehrerscheinKlasse;
 
-public class LKW extends Kfz{
+public class LKW extends Kfz implements Comparable<LKW>{
 
     private float ladeflaeche;
     private float beladung;
@@ -29,8 +29,6 @@ public class LKW extends Kfz{
         this.beladung = beladung;
     }
 
-
-
     public void beladen(float menge) {
 
         if (beladung + menge <= ladeflaeche) {
@@ -56,4 +54,11 @@ public class LKW extends Kfz{
         return this.beladung / this.ladeflaeche * 100;
     }
 
+    @Override
+    public int compareTo(LKW o) {
+        Float lkw1 = this.auslastung();
+        Float lkw2 = o.auslastung();
+
+        return lkw1.compareTo(lkw2);
+    }
 }
