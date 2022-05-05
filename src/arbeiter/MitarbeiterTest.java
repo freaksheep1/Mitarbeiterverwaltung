@@ -13,12 +13,14 @@ public class MitarbeiterTest {
 
         List<Mitarbeiter> mitarbeiterList = new ArrayList<>();
 
-        BueroArbeiter arbeiter1 = new BueroArbeiter(5201, "Zelian", 123);
-        BueroArbeiter arbeiter2 = new BueroArbeiter(5202, "B", 123);
-        BueroArbeiter arbeiter3 = new BueroArbeiter(5203, "F", 123);
-        BueroArbeiter arbeiter4 = new BueroArbeiter(5204, "D", 123);
-        SchichtArbeiter arbeiter5 = new SchichtArbeiter(3002, "Anton", 123);
-        SchichtArbeiter arbeiter6 = new SchichtArbeiter(3500, "C", 123);
+        BueroArbeiter arbeiter1 = new BueroArbeiter(5201, "Zelian", 1200);
+        BueroArbeiter arbeiter2 = new BueroArbeiter(5202, "B", 2100);
+        BueroArbeiter arbeiter3 = new BueroArbeiter(5203, "F", 1500);
+        BueroArbeiter arbeiter4 = new BueroArbeiter(5204, "D", 3000);
+        SchichtArbeiter arbeiter5 = new SchichtArbeiter(3002, "Anton", 14);
+        arbeiter5.setAnzahlStunden(40);
+        SchichtArbeiter arbeiter6 = new SchichtArbeiter(3500, "C", 23);
+        arbeiter6.setAnzahlStunden(40);
 
         mitarbeiterList.add(arbeiter1);
         mitarbeiterList.add(arbeiter2);
@@ -31,11 +33,11 @@ public class MitarbeiterTest {
             System.out.println(mitarbeiter.getName());
         }
 
-        Collections.sort(mitarbeiterList);
+        Collections.sort(mitarbeiterList, new Mitarbeiter.MitarbeiterComparator());
 
         System.out.println("-------------------------------");
         for (Mitarbeiter mitarbeiter : mitarbeiterList) {
-            System.out.println(mitarbeiter.getName());
+            System.out.println(mitarbeiter.getName() + " " + mitarbeiter.einkommen());
         }
 
 
@@ -46,12 +48,25 @@ public class MitarbeiterTest {
         LKW lkw4 = new LKW(3,100,50,100,20000,100);
         LKW lkw5 = new LKW(3,100,50,100,20000,100);
 
+        lkw1.setBeladung(20);
+        lkw2.setBeladung(40);
+        lkw3.setBeladung(10);
+        lkw4.setBeladung(70);
+        lkw5.setBeladung(1);
+
+
         lkws.add(lkw1);
         lkws.add(lkw2);
         lkws.add(lkw3);
         lkws.add(lkw4);
         lkws.add(lkw5);
 
+        for(LKW lkw : lkws) {
+            System.out.println(lkw.auslastung());
+        }
+
+        Collections.sort(lkws);
+        System.out.println("-------------------------------");
 
 
         for(LKW lkw : lkws) {

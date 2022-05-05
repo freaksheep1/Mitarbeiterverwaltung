@@ -1,10 +1,14 @@
 package arbeiter;
 
 
+import java.util.Comparator;
+
 public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
 
     protected Integer id;
     private String name;
+
+
 
     public int getId() {
         return id;
@@ -30,7 +34,21 @@ public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
     @Override
     public int compareTo(Mitarbeiter o) {
 
-       return this.name.compareTo(o.getName()) ;
+        return this.name.compareTo(o.getName());
+    }
+
+    public static class MitarbeiterComparator implements Comparator<Mitarbeiter> {
+
+        @Override
+        public int compare(Mitarbeiter o1, Mitarbeiter o2) {
+            if (o1.einkommen() > o2.einkommen()) {
+                return 1;
+            } else if (o1.einkommen() < o2.einkommen()) {
+                return -1;
+            } else {
+               return 0;
+            }
+        }
     }
 }
 
