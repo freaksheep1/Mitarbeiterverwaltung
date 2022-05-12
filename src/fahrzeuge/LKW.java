@@ -2,10 +2,13 @@ package fahrzeuge;
 
 import fuehrerschein.FuehrerscheinKlasse;
 
+import java.util.List;
+
 public class LKW extends Kfz implements Comparable<LKW>{
 
     private float ladeflaeche;
     private float beladung;
+    private List<LKW> lkws;
 
     public LKW(int anzahlSitze, int tankGroesse, double tankinhalt, int maximaleGeschwindigkeit, float anschaffungskosten, float ladeflaeche) {
         super(anzahlSitze, tankGroesse, tankinhalt, maximaleGeschwindigkeit, anschaffungskosten);

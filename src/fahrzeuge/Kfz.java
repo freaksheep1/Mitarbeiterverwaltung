@@ -4,6 +4,8 @@ import arbeiter.Fahrer;
 import arbeiter.Mitarbeiter;
 import fuehrerschein.FuehrerscheinKlasse;
 
+import java.util.Comparator;
+
 public abstract class Kfz {
 
     private int anzahlSitze;
@@ -221,4 +223,12 @@ public abstract class Kfz {
 
      public abstract float auslastung();
 
+    public static class AuslastungComparator implements Comparator<Kfz> {
+        @Override
+        public int compare(Kfz o1, Kfz o2) {
+            return Double.compare(o1.auslastung(), o2.auslastung());
+        }
+
+
+    }
 }

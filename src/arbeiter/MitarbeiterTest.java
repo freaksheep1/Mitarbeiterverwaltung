@@ -13,11 +13,11 @@ public class MitarbeiterTest {
 
         List<Mitarbeiter> mitarbeiterList = new ArrayList<>();
 
-        BueroArbeiter arbeiter1 = new BueroArbeiter(5201, "Zelian", 1200);
-        BueroArbeiter arbeiter2 = new BueroArbeiter(5202, "B", 2100);
-        BueroArbeiter arbeiter3 = new BueroArbeiter(5203, "F", 1500);
-        BueroArbeiter arbeiter4 = new BueroArbeiter(5204, "D", 3000);
-        SchichtArbeiter arbeiter5 = new SchichtArbeiter(3002, "Anton", 14);
+        BueroArbeiter arbeiter1 = new BueroArbeiter(5201, "Zed", 1200);
+        BueroArbeiter arbeiter2 = new BueroArbeiter(5202, "Braum", 2100);
+        BueroArbeiter arbeiter3 = new BueroArbeiter(5203, "Fiora", 1500);
+        BueroArbeiter arbeiter4 = new BueroArbeiter(5204, "Darius", 3000);
+        SchichtArbeiter arbeiter5 = new SchichtArbeiter(3002, "Anivia", 14);
         arbeiter5.setAnzahlStunden(40);
         SchichtArbeiter arbeiter6 = new SchichtArbeiter(3500, "C", 23);
         arbeiter6.setAnzahlStunden(40);
@@ -72,6 +72,11 @@ public class MitarbeiterTest {
         for(LKW lkw : lkws) {
             System.out.println(lkw.auslastung());
         }
-
+        Manager manager = new Manager(5089, "Dongdong", 15000, 1234);
+        Abteilung abteilung = new Abteilung("Verwaltung", manager);
+        abteilung.add(arbeiter1);
+        abteilung.add(arbeiter4);
+        abteilung.add(arbeiter6);
+        System.out.println(abteilung.gehaltsListe());
     }
 }

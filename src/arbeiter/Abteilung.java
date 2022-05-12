@@ -1,11 +1,15 @@
 package arbeiter;
 
 
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class Abteilung {
 
     private String name;
-    private Mitarbeiter[] mitarbeiterArray;
+    private SortedSet<Mitarbeiter> mitarbeiterSet;
     private Manager leiter;
 
     public String getName() {
@@ -24,10 +28,10 @@ public class Abteilung {
         this.leiter = leiter;
     }
 
-    public Abteilung(String name, Manager leiter, int groesseArray) {
+    public Abteilung(String name, Manager leiter) {
         this.name = name;
         this.leiter = leiter;
-        mitarbeiterArray = new Mitarbeiter[groesseArray];
+        mitarbeiterSet = new TreeSet(new NameComparator());
     }
 
 //	}
@@ -36,28 +40,12 @@ public class Abteilung {
 //		mitarbeiter.add(neuer);
 //	}
 
-    public void add(Mitarbeiter neuer) {
-        boolean listFull = true;
-        for (int i = 0; i < mitarbeiterArray.length; i++) {
-            if (mitarbeiterArray[i] == null) {
-                mitarbeiterArray[i] = neuer;
-                listFull = false;
-                break;
-            }
-        }
-        if (listFull == true) {
-            throw new IllegalArgumentException("List ist voll");
-        }
+    public void add(Mitarbeiter mitarbeiter) {
+        this.mitarbeiterSet.add(mitarbeiter);
     }
 
-    public void remove(Mitarbeiter entferneMitarbeiter) {
-
-        for (int i = 0; i < mitarbeiterArray.length; i++) {
-            if (mitarbeiterArray[i].getId() == entferneMitarbeiter.getId()) {
-                mitarbeiterArray[i] = null;
-                break;
-            }
-        }
+    public void remove(Mitarbeiter mitarbeiter) {
+        this.mitarbeiterSet.remove(mitarbeiter);
     }
 
     public Manager changeLeiter(Manager neuer) {
@@ -74,13 +62,19 @@ public class Abteilung {
 
     public String gehaltsListe() {
         String gehaltsListe = "";
-        for(Mitarbeiter mitarbeiter : mitarbeiterArray) {
-            if(mitarbeiter != null) {
-                gehaltsListe += mitarbeiter.getName() + " : " + mitarbeiter.einkommen() + "\n";
-            }
+        for(Mitarbeiter mitarbeiter : mitarbeiterSet) {
+            gehaltsListe += mitarbeiter.getName() + " : " + mitarbeiter.einkommen() + "\n";
         }
         return gehaltsListe;
 
+    }
+
+    public class NameComparator implements Comparator<Mitarbeiter> {
+
+        @Override
+        public int compare(Mitarbeiter o1, Mitarbeiter o2) {
+             return o1.getName().compareTo(o2.getName());
+        }
     }
 }
 
