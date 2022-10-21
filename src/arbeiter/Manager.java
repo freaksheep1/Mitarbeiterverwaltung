@@ -29,7 +29,7 @@ public class Manager extends BueroArbeiter {
 
     @Override
     public double einkommen() {
-        return getFestgehalt() + einkommen();
+        return getFestgehalt() + berechneBonus();
     }
 
     public double berechneBonus() {
