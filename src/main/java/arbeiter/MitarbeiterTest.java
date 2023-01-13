@@ -33,7 +33,7 @@ public class MitarbeiterTest {
             System.out.println(mitarbeiter.getName());
         }
 
-        Collections.sort(mitarbeiterList, new Mitarbeiter.MitarbeiterComparator());
+//        Collections.sort(mitarbeiterList, new Mitarbeiter.MitarbeiterComparator());
 
         System.out.println("-------------------------------");
         for (Mitarbeiter mitarbeiter : mitarbeiterList) {

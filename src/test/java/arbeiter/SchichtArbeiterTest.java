@@ -12,7 +12,7 @@ public class SchichtArbeiterTest {
 
     @BeforeEach
     public void setup() {
-        schichtArbeiter = new SchichtArbeiter(3000, "Pascal", 14);
+        schichtArbeiter = new SchichtArbeiter(3000, "NichtPascal", 14);
         schichtArbeiter.setAnzahlStunden(40);
     }
 
@@ -42,8 +42,9 @@ public class SchichtArbeiterTest {
         schichtArbeiterWenigerGeld.setAnzahlStunden(40);
         SchichtArbeiter schichtArbeiterGleichGeld = new SchichtArbeiter(3002, "Patrik", 14);
         schichtArbeiterGleichGeld.setAnzahlStunden(40);
-        assertEquals(1, schichtArbeiter.compareTo(schichtArbeiterWenigerGeld), "Mehr Geld");
-        assertEquals(0, schichtArbeiter.compareTo(schichtArbeiterGleichGeld), "Gleiches Geld");
-        assertEquals(-1, schichtArbeiter.compareTo(schichtArbeiterMehrGeld), "Weniger Geld");
+        assertEquals(1, schichtArbeiter.compareGehalt(schichtArbeiterWenigerGeld), "Mehr Geld");
+        assertEquals(0, schichtArbeiter.compareGehalt(schichtArbeiterGleichGeld), "Gleiches Geld");
+        assertEquals(-1, schichtArbeiter.compareGehalt(schichtArbeiterMehrGeld), "Weniger Geld");
+
     }
 }

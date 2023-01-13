@@ -37,7 +37,12 @@ public abstract class Mitarbeiter implements Comparable<Mitarbeiter> {
         return this.name.compareTo(o.getName());
     }
 
-    public static class MitarbeiterComparator implements Comparator<Mitarbeiter> {
+    public int compareGehalt(Mitarbeiter m1) {
+        MitarbeiterComparator mc = new MitarbeiterComparator();
+        return mc.compare(this,m1);
+    }
+
+    public  class MitarbeiterComparator implements Comparator<Mitarbeiter> {
 
         @Override
         public int compare(Mitarbeiter o1, Mitarbeiter o2) {
